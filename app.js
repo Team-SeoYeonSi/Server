@@ -6,7 +6,7 @@ const flash=require('connect-flash');
 const app=express();
 require('dotenv').config();
 
-app.use(morgan('[:date[iso]] :method :status :url :response-time(ms) :member-agent'));
+app.use(morgan('[:date[iso]] :method :status :url :response-time(ms) :user-agent'));
 app.use(session({
 	secret:process.env.SESSION_SECRET,
 	resave:false,
