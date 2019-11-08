@@ -1,6 +1,8 @@
 const session=require('express-session');
 const morgan=require('morgan');
 const express=require('express');
+const passport=require('./passport');
+const flash=require('connect-flash');
 const app=express();
 require('dotenv').config();
 
@@ -12,9 +14,12 @@ app.use(session({
 }))
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
-app.use('/update',require('./update'));
+app.use('/',require('./api'));
 
 app.listen(process.env.SERVER_PORT,()=>{
-	console.log('Server is running on port '+process.env.SERVER_PORT);
+	console.log(new Date('MM-dd HH:mm:ss')+'Server is running on port '+process.env.SERVER_PORT);
 });
