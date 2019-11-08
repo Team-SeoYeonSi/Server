@@ -60,7 +60,7 @@ const create=(req,res)=>{
                 while (!success) {
                     let xf = Math.random() * (x_max-x_min)+x_min;
                     let yf = Math.random() * (y_max-y_min)+y_min;
-                    console.log(xf,yf);
+                    console.log(xf,yf,dist(x,y,xf,yf),dpk*near);
                     if(dist(x,y,xf,yf)>dpk*near){
                         continue;
                     }
