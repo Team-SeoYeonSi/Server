@@ -9,7 +9,6 @@ const questActivity=new QuestActivity();
 const questMethod=new QuestMethod();
 
 const create=(req,res)=>{
-    console.log(req,session.passport.user);
     const x=Number(req.body.x);
     const y=Number(req.body.y);
     const location=req.body.location;
