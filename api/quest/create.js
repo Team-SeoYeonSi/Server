@@ -23,6 +23,7 @@ const create=(req,res)=>{
     }
 
     const DataCheck=()=>{
+        console.log('POST /quest/create 1');
         return new Promise((resolve,reject)=>{
             if(!x || !y || !location || !near){
                 reject({status:'failure',message:'Missed request requirements'});
@@ -33,6 +34,7 @@ const create=(req,res)=>{
         });
     }
     const ConvertNear=()=>{
+        console.log('POST /quest/create 2');
         return new Promise((resolve,reject)=>{
             if(near==='0'){
                 near=1;
@@ -47,6 +49,7 @@ const create=(req,res)=>{
         });
     }
     const Calculate=()=>{
+        console.log('POST /quest/create 3');
         return new Promise(async(resolve,reject)=>{
             if(near===1 || near===10) {
                 const x_max=x+dpk*near;
@@ -68,6 +71,7 @@ const create=(req,res)=>{
         });
     }
     const SetMethod=()=>{
+        console.log('POST /quest/create 4');
         return new Promise((resolve,reject)=>{
             let level=Math.random()*(6-1*1);
             let result;
@@ -88,6 +92,7 @@ const create=(req,res)=>{
     }
 
     const SetActivity=()=> {
+        console.log('POST /quest/create 5');
         return new Promise((resolve, reject) => {
             let level=Math.random()*(6-1*1);
             let result;
@@ -107,6 +112,7 @@ const create=(req,res)=>{
         });
     }
     const Insert=()=>{
+        console.log('POST /quest/create 6');
         return new Promise(async(resolve,reject)=>{
             await quest.insertQuest(req.user.mb_no,destination,qm_method,qa_activity,`${destination}에 ${qm_method} 도착해서 ${qa_activity}`,1/probability*10000,probability);
             resolve();
