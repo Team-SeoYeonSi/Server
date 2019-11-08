@@ -1,7 +1,7 @@
 const User=require('../../model/users');
 
 const LoginByThirdParty=async (info,done)=>{
-    const user=User();
+    const user=new User();
     try{
         let result1=await user.getUserByUserId(info.auth_id);
         if(result1.length===0){
