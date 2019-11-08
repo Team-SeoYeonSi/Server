@@ -44,7 +44,7 @@ const quest_method=class{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('SELECT * FROM quest_activity WHERE qm_level=? ORDER BY rand()',[qm_level]);
+                    const [rows]=await connection.query('SELECT * FROM quest_method WHERE qm_level=? ORDER BY rand()',[qm_level]);
                     connection.release();
                     resolve(rows);
                 }
