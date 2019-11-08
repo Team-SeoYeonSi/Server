@@ -20,7 +20,7 @@ const LoginByThirdParty=async (info,done)=>{
         else{
             done(null,{
                 ms_social_id:result1[0].ms_social_id,
-                mb_nick:result3[0].mb_nick
+                mb_nick:info.auth_name,
             });
         }
     }
