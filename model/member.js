@@ -44,7 +44,7 @@ const member=class{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('INSERT INTO member(mb_nick,is_banned) VALUES(?)',[mb_nick,0]);
+                    const [rows]=await connection.query('INSERT INTO member(mb_nick,mb_is_banned) VALUES(?)',[mb_nick,0]);
                     connection.release();
                     resolve(rows);
                 }
