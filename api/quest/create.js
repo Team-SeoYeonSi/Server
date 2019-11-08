@@ -58,8 +58,8 @@ const create=(req,res)=>{
                 const y_min=y-dpk*near;
                 let success = false;
                 while (!success) {
-                    let xf = Math.random() * (x_max-x_min+1);
-                    let yf = Math.random() * (y_max-y_min+1);
+                    let xf = Math.random() * (x_max-x_min)+x_min;
+                    let yf = Math.random() * (y_max-y_min)+y_min;
                     console.log(xf,yf);
                     if(dist(x,y,xf,yf)>dpk*near){
                         continue;
@@ -73,8 +73,8 @@ const create=(req,res)=>{
             else{
                 let success = false;
                 while (!success) {
-                    let xf = Math.random() * (132-124+1);
-                    let yf = Math.random() * (43-33+1);
+                    let xf = Math.random() * (132-124)+124;
+                    let yf = Math.random() * (43-33)+33;
                     let body=await rp({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf}.${yf}`});
                     let result=JSON.parse(body);
                     destination=result.results[0].region.area1.name+result.results[0].region.area2.name+result.results[0].region.area3.name;
