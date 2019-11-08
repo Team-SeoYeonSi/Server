@@ -22,6 +22,7 @@ const LoginByThirdParty=async (info,done)=>{
         else{
             let result2=await member.getMemberByNick(info.auth_name);
             const mb_no=result2[0].mb_no;
+            console.log('login :',req.user);
             done(null,{
                 mb_no:mb_no,
                 ms_social_id:result1[0].ms_social_id,
