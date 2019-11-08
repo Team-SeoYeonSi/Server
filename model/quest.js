@@ -20,6 +20,44 @@ const quest=class{
             }
         });
     }
+    getYetQuestByMbNo(mb_no){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                const connection=await pool.getConnection(async conn=>conn);
+                try{
+                    const [rows]=await connection.query(`SELECT * FROM quest WHERE mb_no=? AND qu_type='yet'`,[mb_no]);
+                    connection.release();
+                    resolve(rows);
+                }
+                catch(err){
+                    connection.release();
+                    reject(err);
+                }
+            }
+            catch(err){
+                reject(err);
+            }
+        });
+    }
+    updateYetQuestToCanceled(qu_no){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                const connection=await pool.getConnection(async conn=>conn);
+                try{
+                    const [rows]=await connection.query(`UPDATE quest SET qu_type='canceled' WHERE qu_no=?`,[qu_no]);
+                    connection.release();
+                    resolve(rows);
+                }
+                catch(err){
+                    connection.release();
+                    reject(err);
+                }
+            }
+            catch(err){
+                reject(err);
+            }
+        });
+    }
 }
 
 module.exports=quest;
