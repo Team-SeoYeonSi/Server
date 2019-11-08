@@ -8,6 +8,7 @@ const upload=require('./upload');
 
 router.use('/member',member);
 router.use('/post',post);
+router.use('/quest',quest);
 router.get('/success',(req,res)=>{
     res.send('success');
 });
