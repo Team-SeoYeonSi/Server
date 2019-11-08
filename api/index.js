@@ -10,5 +10,7 @@ router.get('/success',(req,res)=>{
 router.get('/failure',(req,res)=>{
     res.send('failure');
 });
+router.post('/upload',(req,res)=>{
 
+})
 module.exports=router;
