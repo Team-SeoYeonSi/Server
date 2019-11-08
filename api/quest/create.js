@@ -72,15 +72,15 @@ const create=(req,res)=>{
             let level=Math.random()*(6-1*1);
             let result;
             if(level>=1 && level<=3){
-                result=questMethod.getQuestMethodByLevel('0');
+                result=questMethod.getQuestMethodByLevel('1');
                 probability*=0.5;
             }
             else if(level>=4 && level<=5){
-                result=questMethod.getQuestMethodByLevel('1');
+                result=questMethod.getQuestMethodByLevel('2');
                 probability*=0.34;
             }
             else{
-                result=questMethod.getQuestMethodByLevel('2');
+                result=questMethod.getQuestMethodByLevel('3');
                 probability*=0.16;
             }
             qm_method=result[0].qm_method;
@@ -92,15 +92,15 @@ const create=(req,res)=>{
             let level=Math.random()*(6-1*1);
             let result;
             if(level>=1 && level<=3){
-                result=questActivity.getQuestActivityByLevel('0');
+                result=questActivity.getQuestActivityByLevel('1');
                 probability*=0.5;
             }
             else if(level>=4 && level<=5){
-                result=questActivity.getQuestActivityByLevel('1');
+                result=questActivity.getQuestActivityByLevel('2');
                 probability*=0.34;
             }
             else {
-                result = questActivity.getQuestActivityByLevel('2');
+                result = questActivity.getQuestActivityByLevel('3');
                 probability *= 0.16;
             }
             qa_activity=result[0].qa_activity;
