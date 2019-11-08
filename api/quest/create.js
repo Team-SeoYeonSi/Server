@@ -67,6 +67,7 @@ const create=(req,res)=>{
                     let body=await rp.get({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf.toFixed(7)},${yf.toFixed(7)}`});
                     let result=JSON.parse(body);
                     destination=result.results[0].region.area1.name+' '+result.results[0].region.area2.name+' '+result.results[0].region.area3.name;
+                    console.log(destination);
                     break;
                 }
                 resolve();
@@ -77,6 +78,7 @@ const create=(req,res)=>{
                 let body=await rp.get({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf.toFixed(7)},${yf.toFixed(7)}`});
                 let result=JSON.parse(body);
                 destination=result.results[0].region.area1.name+' '+result.results[0].region.area2.name+' '+result.results[0].region.area3.name;
+                console.log(destination);
                 resolve();
             }
         });
@@ -99,6 +101,7 @@ const create=(req,res)=>{
                 probability*=0.16;
             }
             qm_method=result[0].qm_method;
+            resolve();
         });
     }
 
@@ -120,6 +123,7 @@ const create=(req,res)=>{
                 probability *= 0.16;
             }
             qa_activity=result[0].qa_activity;
+            resolve();
         });
     }
     const Insert=()=>{
