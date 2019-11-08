@@ -129,7 +129,7 @@ const create=(req,res)=>{
     const Insert=()=>{
         console.log('POST /quest/create 6');
         return new Promise(async(resolve,reject)=>{
-            console.log(req);
+            console.log(req.user);
             await quest.insertQuest(req.user.mb_no,destination,qm_method,qa_activity,`${destination}에 ${qm_method} 도착해서 ${qa_activity}`,1/probability*10000,probability);
             resolve();
         });
