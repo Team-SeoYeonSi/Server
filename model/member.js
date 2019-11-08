@@ -25,7 +25,7 @@ const member=class{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('SELECT * FROM MEMBER WHERE mb_nick=?',[mb_nick]);
+                    const [rows]=await connection.query('SELECT * FROM member WHERE mb_nick=?',[mb_nick]);
                     connection.release();
                     resolve(rows);
                 }
@@ -44,7 +44,7 @@ const member=class{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('INSERT INTO member(mb_nick,mb_is_banned,mb_is_using_push) VALUES(?,?,?)',[mb_nick,'0','0']);
+                    const [rows]=await connection.query('INSERT INTO member(mb_nick,mb_is_banned,mb_is_using_push) VALUES(?,0,0)',[mb_nick]);
                     connection.release();
                     resolve(rows);
                 }
