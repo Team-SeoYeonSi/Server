@@ -13,6 +13,12 @@ passport.use(new KakaoStrategy({
         auth_id:userProfile.id,
         auth_name:userProfile.properties.nickname,
     },done);
-}))
+}));
+passport.serializeUser((user,done)=>{
+    done(null,user);
+});
+passport.deserializeUser((user,done)=>{
+    done(null,user);
+});
 
 module.exports=passport;
