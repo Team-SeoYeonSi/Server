@@ -21,5 +21,5 @@ app.use(passport.session());
 app.use('/',require('./api'));
 
 app.listen(process.env.SERVER_PORT,()=>{
-	console.log(new Date('MM-dd HH:mm:ss')+'Server is running on port '+process.env.SERVER_PORT);
+	console.log(new Date()+' Server is running on port '+process.env.SERVER_PORT);
 });
