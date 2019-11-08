@@ -4,7 +4,7 @@ const loginByThridParty=require('./api/user/loginByThridParty');
 require('dotenv').config();
 
 passport.use(new KakaoStrategy({
-    clientID=process.env.KAKAO_CLIENT_ID,
+    clientID:process.env.KAKAO_CLIENT_ID,
     callbackURL:process.env.KAKAO_CALLBACK_URL
 },(accessToken,refresh,profile,done)=>{
     const userProfile=profile._json;
