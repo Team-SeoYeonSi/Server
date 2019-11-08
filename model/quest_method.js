@@ -6,7 +6,7 @@ const quest_method=class{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('INSERT INTO post(qm_method,qm_level) VALUES(?,?)',[qm_method,qm_level]);
+                    const [rows]=await connection.query('INSERT INTO quest_method(qm_method,qm_level) VALUES(?,?)',[qm_method,qm_level]);
                     connection.release();
                     resolve(rows);
                 }
