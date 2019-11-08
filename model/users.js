@@ -21,7 +21,7 @@ const user=class{
         });
     }
     insertUser(userId, nickname){
-        return new Promise((resolve,reject)=>{
+        return new Promise(async(resolve,reject)=>{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
