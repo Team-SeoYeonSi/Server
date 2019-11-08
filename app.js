@@ -7,10 +7,21 @@ const app=express();
 require('dotenv').config();
 
 app.use(morgan('[:date[iso]] :method :status :url :response-time(ms) :user-agent'));
+app.use((req,res,next)=>{
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, authorization");
+	res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS");
+	next();
+})
 app.use(session({
 	secret:process.env.SESSION_SECRET,
 	resave:false,
-	saveUninitialized:true
+	saveUninitialized:true,
+	domain:'.seoyeonsi.bu.to',
+	cookie:{
+		path:'/',
+		domain:'.seoyeonsi.bu.to'
+	}
 }))
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
