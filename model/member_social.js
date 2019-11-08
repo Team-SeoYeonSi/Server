@@ -1,12 +1,12 @@
 const pool=require('../pool');
 
-const user=class{
-    getUserByUserId(userId){
+const member_social=class{
+    getMemberSocialBySocialId(social_id){
         return new Promise(async(resolve,reject)=>{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('SELECT * FROM USERS WHERE USERID=?',[userId]);
+                    const [rows]=await connection.query('SELECT * FROM member_social WHERE ms_social_id=?',[social_id]);
                     connection.release();
                     resolve(rows);
                 }
@@ -20,12 +20,12 @@ const user=class{
             }
         });
     }
-    insertUser(userId, nickname){
+    insertMemberSocial(mb_no,ms_social,ms_social_id){
         return new Promise(async(resolve,reject)=>{
             try{
                 const connection=await pool.getConnection(async conn=>conn);
                 try{
-                    const [rows]=await connection.query('INSERT INTO USERS(USERID,NICKNAME) VALUES(?,?)',[userId,nickname]);
+                    const [rows]=await connection.query('INSERT INTO member_social(mb_no,ms_social,ms_social_id) VALUES(?,?,?)',[mb_no,ms_social,ms_social_id]);
                     connection.release();
                     resolve(rows);
                 }
@@ -41,4 +41,4 @@ const user=class{
     }
 }
 
-module.exports=user;
+module.exports=member_social;

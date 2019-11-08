@@ -1,9 +1,9 @@
 const express=require('express');
 const router=express.Router();
 
-const user=require('./user');
+const member=require('./member');
 
-router.use('/user',user);
+router.use('/member',member);
 router.get('/success',(req,res)=>{
     res.send('success');
 });
