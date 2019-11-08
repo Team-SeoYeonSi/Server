@@ -10,7 +10,7 @@ router.use('/member',member);
 router.use('/post',post);
 router.use('/quest',quest);
 router.get('/success',(req,res)=>{
-    res.send('success');
+    res.send(req.user);
 });
 router.get('/failure',(req,res)=>{
     res.send('failure');
