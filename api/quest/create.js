@@ -64,7 +64,7 @@ const create=(req,res)=>{
                     if(dist(x,y,xf,yf)>dpk*near){
                         continue;
                     }
-                    let body=await rp({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf},${yf}`});
+                    let body=await rp.get({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf},${yf}`});
                     let result=JSON.parse(body);
                     destination=result.results[0].region.area1.name+result.results[0].region.area2.name+result.results[0].region.area3.name;
                     resolve();
@@ -75,7 +75,7 @@ const create=(req,res)=>{
                 while (!success) {
                     let xf = Math.random() * (132-124)+124;
                     let yf = Math.random() * (43-33)+33;
-                    let body=await rp({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf},${yf}`});
+                    let body=await rp.get({uri:`https://map.naver.com/v5/api/geocode?request=coordsToaddr&version=1.0&sourcecrs=epsg:4326&output=json&orders=addr&coords=${xf},${yf}`});
                     let result=JSON.parse(body);
                     destination=result.results[0].region.area1.name+result.results[0].region.area2.name+result.results[0].region.area3.name;
                     resolve();
